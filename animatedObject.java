@@ -42,8 +42,8 @@ public class animatedObject {
     
     private boolean pointIn(int x, int y) {
         // is x in boundaries?
-        if (posX <= x && x <= posX) {
-            if (posY <= y && y <= posY) {
+        if (posX <= x && x <= posX + width) {
+            if (posY <= y && y <= posY + height) {
                 return true;
             }
         }
@@ -51,7 +51,8 @@ public class animatedObject {
     }
     
     public boolean rectIn(int x, int y, int rectWidth, int rectHeight) {
-        return true;
+        // point at x, y ; x + width, y ; x + width, y + height; x, y + height
+        return pointIn(x, y) || pointIn(x + width, y) || pointIn(x + width, y + height) || pointIn(x, y + height);
     }
     
 }
