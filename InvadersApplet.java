@@ -25,16 +25,25 @@ public class InvadersApplet extends Applet {
      */
     public void init() {
         // TODO code application logic here
-        picture = getImage(getDocumentBase(), "alien.png");
+        // picture = getImage(getDocumentBase(), "alien.png");
     }
     
-    public void loadInvaders() {
+    public void createInvaders(Graphics g) {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 11; col++) {
-                invaders[row][col] = new animatedObject
+                invaders[row][col] = new animatedObject(g);
             }
         }
     }
+    
+    public void placeInvaders() {
+        // pass
+    }
+    
+    public void updateInvaders() {
+        // pass
+    }
+    
     public void paint(Graphics g) {
         for (int i=0; i < 500; i++) {
             g.drawImage(picture, i, 30, this);
